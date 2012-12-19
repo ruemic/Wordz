@@ -2,7 +2,6 @@
 @import 'bourbon';
 
 html {
-
     font-size: 100%;
     min-height: 100%;
 }
@@ -12,8 +11,7 @@ body {
     line-height: 18px;
     background-color: #eefbf8;
     @include radial-gradient(50% 50%, circle cover, hsla(0,0%,100%,.2) 30%, hsla(0,0%,0%,.75));
-    // background-image: radial-gradient(circle, hsla(0,0%,100%,.1), hsla(0,0%,0%,.75)),
-    //                   linear-gradient(left, transparent 50%, hsla(0,0%,0%,.01) 50%);
+    // linear-gradient(left, transparent 50%, hsla(0,0%,0%,.01) 50%);
     background-position: 50% 75%, 50% 50%;
     background-repeat: no-repeat, repeat;
     background-size: 150% 150%, 3em 3em;
@@ -21,11 +19,6 @@ body {
 }
 .row { max-width: 900px; }
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
-
-#count {
-  text-align: center;
-  h3 { padding: 3px 0; }
-}
 
 #index-title {
   text-align: center;
