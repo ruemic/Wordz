@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Api::DreamsController do
-  let!(:dream) { Dream.create(name: "It's my dream") }
+describe Api::WordsController do
+  let!(:word) { Word.create(name: "It's my word") }
 
   describe 'GET :index' do
     it 'should be success' do
@@ -11,39 +11,39 @@ describe Api::DreamsController do
   end
 
   describe 'POST :create' do
-    it 'creates new dream' do
+    it 'creates new word' do
       expect {
-        post :create, format: :json, dream: {name: 'New dream'}
-      }.to change(Dream, :count).by(1)
+        post :create, format: :json, word: {name: 'New word'}
+      }.to change(Word, :count).by(1)
     end
 
     it 'response created' do
-      post :create, format: :json, dream: dream.attributes
+      post :create, format: :json, word: word.attributes
       response.status.should == 201
     end
   end
 
   describe 'PUT :update' do
-    it 'updates dream' do
-      put :update, format: :json, id: dream.id, dream: {name: 'Updated dream'}
-      dream.reload.name.should == 'Updated dream'
+    it 'updates word' do
+      put :update, format: :json, id: word.id, word: {name: 'Updated word'}
+      word.reload.name.should == 'Updated word'
     end
 
     it 'response no content' do
-      put :update, format: :json, id: dream.id, dream: dream.attributes
+      put :update, format: :json, id: word.id, word: word.attributes
       response.status.should == 204
     end
   end
 
   describe 'DELETE :destroy' do
-    it 'destroy dream' do
+    it 'destroy word' do
       expect {
-        delete :destroy, format: :json, id: dream.id
-      }.to change(Dream, :count).by(-1)
+        delete :destroy, format: :json, id: word.id
+      }.to change(Word, :count).by(-1)
     end
 
     it 'response no content' do
-      delete :destroy, format: :json, id: dream.id
+      delete :destroy, format: :json, id: word.id
       response.status.should == 204
     end
   end

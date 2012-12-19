@@ -1,19 +1,9 @@
-Dream.delete_all
-
-def create_dream(name, position)
-  Dream.create! name: name, position: position
-  puts "#{position}: #{name}"
-end
+Word.delete_all
 
 def create_word(correct, incorrect)
   Word.create! correct: correct, incorrect: incorrect
   puts "#{correct}: #{incorrect}"
 end
-
-
-create_dream 'Learn to play on sax', 1
-create_dream 'Dive with scuba', 2
-create_dream 'Visit Iceland', 3
 
 create_word 'apple', 'aple'
 create_word 'abandonned', 'abandoned'

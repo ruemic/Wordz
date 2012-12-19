@@ -1,6 +1,24 @@
 @import 'foundation';
+@import 'bourbon';
 
-body { min-height: 480px; line-height: 18px; }
+html {
+
+    font-size: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 480px;
+    line-height: 18px;
+    background-color: #eefbf8;
+    @include radial-gradient(50% 50%, circle cover, hsla(0,0%,100%,.2) 30%, hsla(0,0%,0%,.75));
+    // background-image: radial-gradient(circle, hsla(0,0%,100%,.1), hsla(0,0%,0%,.75)),
+    //                   linear-gradient(left, transparent 50%, hsla(0,0%,0%,.01) 50%);
+    background-position: 50% 75%, 50% 50%;
+    background-repeat: no-repeat, repeat;
+    background-size: 150% 150%, 3em 3em;
+
+}
 .row { max-width: 900px; }
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
 
@@ -9,20 +27,38 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
   h3 { padding: 3px 0; }
 }
 
+#index-title {
+  text-align: center;
+}
+
 #words {
   li {
     list-style: none;
+    @include clearfix;
+    > div {
+      @extend .six;
+      @extend .columns;
+      @extend .mobile-two;
+    }
   }
   p {
-    @extend .five;
-    @extend .rows;
-    @include inline-block;
+    width: auto;
+    border: 1px solid transparentize(blue,.95);
+    background: transparentize(white,.25);
+    @include user-select(none);
+    padding: 2em auto 1em;
+    position: relative;
+    @include clearfix;
     font-size: 3em;
     color: #6F6F6F;
     font-weight: 500;
     text-align: center;
     font-family: "OpenSans";
+    &.active {
+      font-weight: 900;
+    }
   }
 }
 
 .columns.centered.footer { text-align: center; margin-bottom: 20px; }
+

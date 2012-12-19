@@ -13,13 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121219052629) do
 
-  create_table "dreams", :force => true do |t|
-    t.string   "name"
-    t.float    "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "words", :force => true do |t|
     t.string   "correct"
     t.string   "incorrect"

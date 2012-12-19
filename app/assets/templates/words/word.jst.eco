@@ -1,7 +1,11 @@
-<p>
-  <%= @correct %>
-</p>
+<div>
+  <p>
+    <%= @correct %>
+  </p>
+</div>
 
-<p>
-  <%= @incorrect %>
-</p>
+<div>
+  <p>
+    <%= @incorrect %>
+  </p>
+</div>

@@ -4,7 +4,6 @@ module.exports = WordIndexView = Backbone.View.extend
   el: "#content"
 
   initialize: ->
-    console.log @collection
     @collection.on('add reset', @render, @)
 
   render: ->
@@ -15,3 +14,4 @@ module.exports = WordIndexView = Backbone.View.extend
   addOne: (word) =>
     view = new WordView(model: word)
     @$('#words').append view.render().el
+

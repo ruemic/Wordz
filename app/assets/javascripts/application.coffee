@@ -12,9 +12,6 @@
 #= require_tree ./views
 #= require_self
 
-Dreams    = require('models/dream')
-IndexView = require('views/dreams/index')
-
 Words     = require('models/word')
 IndexView = require('views/words/index')
 

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Dreamy::Application.load_tasks
+Wordy::Application.load_tasks
