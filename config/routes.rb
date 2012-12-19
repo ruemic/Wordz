@@ -5,4 +5,9 @@ Dreamy::Application.routes.draw do
   namespace :api do
     resources :dreams, only: [:index, :create, :update, :destroy]
   end
+
+  namespace :api do
+    resources :words, only: [:index, :create, :update, :destroy]
+  end
+
 end

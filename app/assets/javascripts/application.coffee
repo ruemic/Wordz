@@ -14,11 +14,13 @@
 
 Dreams    = require('models/dream')
 IndexView = require('views/dreams/index')
-CountView = require('views/shared/count')
+
+Words     = require('models/word')
+IndexView = require('views/words/index')
 
 $ ->
-  dreams = new Dreams()
-  dreams.fetch()
+  words = new Words()
+  words.fetch()
+  window.words = words
 
-  new IndexView(collection: dreams).render()
-  new CountView(collection: dreams).render()
+  new IndexView(collection: words).render()
