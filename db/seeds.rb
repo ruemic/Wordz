@@ -1,11 +1,10 @@
 Word.delete_all
 
-def create_word(correct, incorrect)
-  Word.create! correct: correct, incorrect: incorrect
-  puts "#{correct}: #{incorrect}"
+def create_word(incorrect, correct)
+  Word.create! incorrect: incorrect, correct: correct
+  puts "#{incorrect}: #{correct}"
 end
 
-create_word 'apple', 'aple'
 create_word 'abandonned', 'abandoned'
 create_word 'aberation', 'aberration'
 create_word 'abilties', 'abilities'

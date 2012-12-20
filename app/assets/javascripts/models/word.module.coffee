@@ -3,10 +3,12 @@ Word = Backbone.Model.extend
     correct = $.trim(attrs.correct)
     return "Can't be blank" if _.isEmpty(correct)
 
+  isCorrect: (spelling) ->
+    spelling is @.get('correct')
+
 module.exports = Words = Backbone.Collection.extend
   model: Word
   url: 'api/words'
 
   initialize: ->
     @storage = new Offline.Storage('words', @, autoPush: true)
-
