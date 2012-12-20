@@ -34,22 +34,28 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
       @extend .mobile-two;
     }
   }
-  p {
-    width: auto;
-    border: 1px solid transparentize(blue,.95);
-    background: transparentize(white,.25);
-    @include user-select(none);
-    padding: 2em auto 1em;
-    position: relative;
-    @include clearfix;
-    font-size: 3em;
-    color: #6F6F6F;
-    font-weight: 500;
-    text-align: center;
-    font-family: "OpenSans";
-    &.active {
-      font-weight: 900;
-    }
+}
+.word {
+  width: auto;
+  border: 5px solid transparentize(blue,.95);
+  background: transparentize(white,.25);
+  @include user-select(none);
+  padding: 2em auto 1em;
+  position: relative;
+  @include clearfix;
+  font-size: 3em;
+  color: #6F6F6F;
+  font-weight: 500;
+  text-align: center;
+  font-family: "OpenSans";
+  &.active {
+    font-weight: 900;
+  }
+  &.correct {
+    border: 5px solid transparentize(green, .5);
+  }
+  &.incorrect {
+    border: 5px solid transparentize(red, .5);
   }
 }
 

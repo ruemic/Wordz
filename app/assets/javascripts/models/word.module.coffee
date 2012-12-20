@@ -3,8 +3,19 @@ Word = Backbone.Model.extend
     correct = $.trim(attrs.correct)
     return "Can't be blank" if _.isEmpty(correct)
 
-  isCorrect: (spelling) ->
-    spelling is @.get('correct')
+  checkSpelling: (word) ->
+    if word is @.correctWord()
+      @.set("answer":"correct")
+    else
+      @.set("answer":"incorrect")
+    return
+
+  correctWord: ->
+    @.get('correct')
+
+  incorrectWord: ->
+    @.get('incorrect')
+
 
 module.exports = Words = Backbone.Collection.extend
   model: Word

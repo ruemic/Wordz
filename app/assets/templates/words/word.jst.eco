@@ -1,7 +1,7 @@
 <div>
-  <p><%= @correct %></p>
+  <p class="word"><%= @wordA %></p>
 </div>
 
 <div>
-  <p><%= @incorrect %></p>
+  <p class="word"><%= @wordB %></p>
 </div>

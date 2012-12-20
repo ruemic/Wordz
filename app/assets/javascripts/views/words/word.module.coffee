@@ -1,30 +1,44 @@
 module.exports = WordView = Backbone.View.extend
   template: JST['words/word']
   tagName: 'li'
-  className: 'word'
+  className: "question"
 
   events:
-    "click p" : "select"
+    "click .word" : "checkAnswer"
 
   initialize: (options) ->
-    @listenTo(@model, 'change', @render)
-    @listenTo(@model, 'change', @updateActive)
-
+    @listenTo(@model, 'change:answer', @updateState)
 
   render: ->
-    @$el.html @template(correct: @model.get('correct'), incorrect: @model.get('incorrect'))
-    @$el.attr 'id', @model.id
+    if @randomInteger(1) is 0
+      @$el.html @template(wordA: @model.get('correct'),   wordB: @model.get('incorrect'))
+    else
+      @$el.html @template(wordA: @model.get('incorrect'), wordB: @model.get('correct')  )
     @
 
-  select: (e) ->
-    spelling = $(e.currentTarget).text()
-    if @model.isCorrect(spelling)
-      @model.set("answer":"correct")
-    else
-      @model.set("answer":"incorrect")
+  randomInteger: (lower, upper=0) ->
+    start = Math.random()
+    if not lower?
+      [lower, upper] = [0, lower]
+    if lower > upper
+      [lower, upper] = [upper, lower]
+    return Math.floor(start * (upper - lower + 1) + lower)
 
-  updateActive: (e) ->
-    console.log @model
-    console.log @model.get('correct')
-    console.log e, "update"
-    # if @$('p').toggleClass('active')
+  checkAnswer: (e) ->
+    if @model.get('answer') is undefined
+      word = $(e.currentTarget).text()
+      @model.checkSpelling(word)
+
+  updateState: ->
+    if @model.get('answer') is "correct"
+      @markAsCorrect()
+    else
+      @markAsIncorrect()
+
+  markAsCorrect: ->
+    $correctWord = @$el.find( "p:contains(#{@model.correctWord()})" )
+    $correctWord.addClass('correct')
+
+  markAsIncorrect: ->
+    $incorrectWord = @$el.find( "p:contains(#{@model.incorrectWord()})" )
+    $incorrectWord.addClass('incorrect')
