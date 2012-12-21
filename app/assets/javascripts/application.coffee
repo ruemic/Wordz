@@ -12,12 +12,17 @@
 #= require_tree ./views
 #= require_self
 
-Words     = require('models/word')
-IndexView = require('views/words/index')
+Words      = require('models/word')
+IndexView  = require('views/words/index')
+Score      = require('models/score')
+ScoreView  = require('views/score/score')
 
 $ ->
   words = new Words()
-  words.fetch()
-  window.words = words
+  words.fetch
+    success: (collection) ->
+      window.score = new Score(words:collection)
+
 
   new IndexView(collection: words).render()
+  new ScoreView().render()
