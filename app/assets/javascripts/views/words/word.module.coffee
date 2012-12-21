@@ -34,6 +34,7 @@ module.exports = WordView = Backbone.View.extend
       @markAsCorrect()
     else
       @markAsIncorrect()
+    @nextQuestion()
 
   markAsCorrect: ->
     $correctWord = @$el.find( "p:contains(#{@model.correctWord()})" )
@@ -42,3 +43,6 @@ module.exports = WordView = Backbone.View.extend
   markAsIncorrect: ->
     $incorrectWord = @$el.find( "p:contains(#{@model.incorrectWord()})" )
     $incorrectWord.addClass('incorrect')
+
+  nextQuestion: ->
+    @$el.slideUp(300)

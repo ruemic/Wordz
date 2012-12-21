@@ -19,34 +19,49 @@ body {
 .row { max-width: 900px; }
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
 
+
 #index-title {
-  text-align: center;
+  @extend .six;
+  @extend .columns;
+  @extend .offset-by-three;
+  h2 {
+    text-align: center;
+    height: 1.8em;
+  }
 }
 
-#score {
-  font-size: 5em;
-  position: fixed;
-  top: 40px;
-  left: 50px;
+#scoreboard {
+  @extend .two;
+  @extend .columns;
+  @extend .offset-by-one;
+  text-align: center;
+  #score {
+    font-size: 4em;
+    line-height: 1em;
+    vertical-align: middle;
+  }
 }
 
 #words {
-  li {
-    list-style: none;
-    @include clearfix;
+  padding-top: 2em;
+  position: relative;
+  list-style: none;
+  .question {
+    @extend .row;
     > div {
+      @extend .twelve;
+      @extend .columns;
+    }
+    .choice {
       @extend .six;
       @extend .columns;
-      @extend .mobile-two;
     }
   }
 }
 .word {
-  width: auto;
   border: 5px solid transparentize(blue,.95);
-  background: transparentize(white,.25);
+  background: white;
   @include user-select(none);
-  padding: 2em auto 1em;
   position: relative;
   @include clearfix;
   font-size: 3em;
@@ -64,6 +79,3 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
     border: 5px solid transparentize(red, .5);
   }
 }
-
-.columns.centered.footer { text-align: center; margin-bottom: 20px; }
-
