@@ -9,6 +9,9 @@ module.exports = Score = Backbone.Model.extend
   updateScore: (word) ->
     if word.get('answer') is "correct"
       @changePoints(+3)
+      successSound = new buzz.sound "/assets/success",
+        formats: ["mp3", "ogg"]
+      successSound.play()
     else
       @changePoints(-1)
 

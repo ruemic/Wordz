@@ -19,9 +19,6 @@ Word = Backbone.Model.extend
 
   handleSuccess: ->
     @.set("answer":"correct")
-    successSound = new buzz.sound "/assets/success",
-      formats: ["mp3"]
-    successSound.play().loop()
 
   handleFailure: ->
     @.set("answer":"incorrect")
