@@ -3,18 +3,29 @@ Word = Backbone.Model.extend
     correct = $.trim(attrs.correct)
     return "Can't be blank" if _.isEmpty(correct)
 
-  checkSpelling: (word) ->
-    if word is @.correctWord()
-      @.set("answer":"correct")
-    else
-      @.set("answer":"incorrect")
-    return
-
   correctWord: ->
     @.get('correct')
 
   incorrectWord: ->
     @.get('incorrect')
+
+
+  checkSpelling: (word) ->
+    if word is @.correctWord()
+      @handleSuccess()
+    else
+      @handleFailure()
+    return
+
+  handleSuccess: ->
+    @.set("answer":"correct")
+    successSound = new buzz.sound "/assets/success",
+      formats: ["mp3"]
+    successSound.play().loop()
+
+  handleFailure: ->
+    @.set("answer":"incorrect")
+
 
 
 module.exports = Words = Backbone.Collection.extend

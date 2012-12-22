@@ -4,7 +4,7 @@
 #= require underscore
 #= require backbone
 #= require backbone.offline
-#= require backbone.position
+#= require buzz
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
