@@ -9,10 +9,11 @@
 #
 #= require_tree ../templates
 #= require_tree ./models
+#= require_tree ./collections
 #= require_tree ./views
 #= require_self
 
-Words      = require('models/word')
+Words      = require('collections/words')
 IndexView  = require('views/words/index')
 Score      = require('models/score')
 ScoreView  = require('views/score/score')

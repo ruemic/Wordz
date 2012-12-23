@@ -1,4 +1,4 @@
-Word = Backbone.Model.extend
+module.exports = Word = Backbone.Model.extend
   validate: (attrs) ->
     correct = $.trim(attrs.correct)
     return "Can't be blank" if _.isEmpty(correct)
@@ -22,20 +22,5 @@ Word = Backbone.Model.extend
 
   handleFailure: ->
     @.set("answer":"incorrect")
-
-
-
-module.exports = Words = Backbone.Collection.extend
-
-  initialize: (options) ->
-    @storage = new Offline.Storage('words', @, autoPush: true)
-    @page = if options.page then options.page else 1
-    @
-
-  model: Word
-
-  url: ->
-    "/api/words/?page=" + @page
-
 
 
