@@ -4,17 +4,20 @@ module.exports = Score = Backbone.Model.extend
     @.set(score: 0)
     @points = @.get('score')
     @words = options.words
-    @listenTo(@words, 'change:answer', @updateScore)
+    @listenTo(@words, 'change:answer', @evaluateAnswer)
 
-  updateScore: (word) ->
+  evaluateAnswer: (word) ->
     if word.get('answer') is "correct"
       @changePoints(+3)
-      successSound = new buzz.sound "/assets/success",
-        formats: ["mp3", "ogg"]
-      successSound.play()
+      @playSuccessSound()
     else
       @changePoints(-1)
 
   changePoints: (number) ->
     @points += number
     @.set(score: @points)
+
+  playSuccessSound: ->
+    successSound = new buzz.sound "/assets/success",
+      formats: ["mp3", "ogg"]
+    successSound.play()

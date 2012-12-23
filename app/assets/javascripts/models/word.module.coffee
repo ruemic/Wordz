@@ -26,8 +26,16 @@ Word = Backbone.Model.extend
 
 
 module.exports = Words = Backbone.Collection.extend
-  model: Word
-  url: 'api/words'
 
-  initialize: ->
+  initialize: (options) ->
     @storage = new Offline.Storage('words', @, autoPush: true)
+    @page = if options.page then options.page else 1
+    @
+
+  model: Word
+
+  url: ->
+    "/api/words/?page=" + @page
+
+
+

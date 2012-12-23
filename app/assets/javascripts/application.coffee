@@ -18,11 +18,10 @@ Score      = require('models/score')
 ScoreView  = require('views/score/score')
 
 $ ->
-  words = new Words()
+  words = new Words(page: 1)
   words.fetch
     success: (collection) ->
       window.score = new Score(words:collection)
-
 
   new IndexView(collection: words).render()
   new ScoreView().render()

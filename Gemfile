@@ -16,5 +16,7 @@ group :assets do
   gem 'modular-scale'
 end
 
+gem 'will_paginate'
+
 gem 'rspec-rails', groups: [:development, :test]
 gem 'bourbon'

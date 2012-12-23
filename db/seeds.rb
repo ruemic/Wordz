@@ -1,7 +1,7 @@
 Word.delete_all
 open("public/wordz.txt") do |words|
   words.read.each_line do |word|
-    correct, incorrect = word.chomp.split("->")
+    incorrect, correct = word.chomp.split("->")
     Word.create!(:incorrect => incorrect, :correct => correct)
   end
 end
