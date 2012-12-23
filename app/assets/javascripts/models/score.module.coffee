@@ -5,6 +5,12 @@ module.exports = Score = Backbone.Model.extend
     @points = @.get('score')
     @words = options.words
     @listenTo(@words, 'change:answer', @evaluateAnswer)
+    @successSound = new Audio()
+    if Modernizr.audio.mp3 == ""
+      @successSound.src = '/assets/success.ogg'
+    else
+      @successSound.src = '/assets/success.mp3'
+
 
   evaluateAnswer: (word) ->
     if word.get('answer') is "correct"
@@ -18,6 +24,4 @@ module.exports = Score = Backbone.Model.extend
     @.set(score: @points)
 
   playSuccessSound: ->
-    successSound = new buzz.sound "/assets/success",
-      formats: ["mp3", "ogg"]
-    successSound.play()
+    audio = @successSound.cloneNode().play()

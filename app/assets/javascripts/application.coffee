@@ -1,10 +1,10 @@
 #= require jquery
+#= require modernizr
 #= require jquery_ujs
 #= require jquery.sortable
 #= require underscore
 #= require backbone
 #= require backbone.offline
-#= require buzz
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
