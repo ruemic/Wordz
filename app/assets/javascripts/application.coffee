@@ -5,6 +5,7 @@
 #= require underscore
 #= require backbone
 #= require backbone.offline
+#= require reveal
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
@@ -13,16 +14,14 @@
 #= require_tree ./views
 #= require_self
 
+Game       = require('models/game')
 Words      = require('collections/words')
-IndexView  = require('views/words/index')
-Score      = require('models/score')
-ScoreView  = require('views/score/score')
+GameView   = require('views/game')
 
 $ ->
   words = new Words(page: 1)
   words.fetch
     success: (collection) ->
-      window.score = new Score(words:collection)
+      window.game = new Game(words:collection)
 
-  new IndexView(collection: words).render()
-  new ScoreView().render()
+  new GameView(collection: words).render()

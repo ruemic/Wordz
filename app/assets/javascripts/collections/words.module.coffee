@@ -11,3 +11,7 @@ module.exports = Words = Backbone.Collection.extend
 
   url: ->
     "/api/words/?page=" + @page
+
+  fetchLevel: (level) ->
+    @page = level
+    @.fetch()

@@ -16,38 +16,34 @@ body {
   background-repeat: no-repeat, repeat;
   background-size: 150% 150%, 3em 3em;
 }
-.row { max-width: 900px; }
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
 
-
-#index-title {
-  @extend .six;
-  @extend .columns;
-  @extend .offset-by-three;
-  h2 {
-    text-align: center;
-    height: 1.8em;
-  }
-}
-
 #scoreboard {
-  @extend .two;
-  @extend .columns;
-  @extend .offset-by-one;
-  text-align: center;
-  #score {
-    font-size: 4em;
-    line-height: 1em;
-    vertical-align: middle;
+  @extend .row;
+  list-style: none;
+  li {
+    @extend .two;
+    @extend .columns;
+    @include inline-block;
+    > span {
+      line-height: 60px;
+      @include inline-block;
+      vertical-align: middle;
+    }
+  }
+  #level-score {
+    @extend .offset-by-three;
+    span { font-size: 4em }
   }
 }
 
 #words {
-  padding-top: 2em;
+  margin-top: 100px;
   position: relative;
   list-style: none;
   .question {
     @extend .row;
+    height: 800px;
     > div {
       @extend .twelve;
       @extend .columns;
@@ -60,7 +56,8 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
 }
 .word {
   border: 5px solid transparentize(blue,.95);
-  background: white;
+  background: transparentize(white,.4);
+
   @include user-select(none);
   position: relative;
   @include clearfix;
