@@ -4,8 +4,7 @@ class Api::WordsController < InheritedResources::Base
   actions :index, :create, :update, :destroy
 
   def index
-    @words = Word.order("id").page(params[:page]).per_page(10)
+    @words = Word.order("RANDOM()").page(params[:page]).per_page(10)
     render json: @words
   end
-
 end
