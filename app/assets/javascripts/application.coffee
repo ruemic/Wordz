@@ -6,6 +6,7 @@
 #= require backbone
 #= require backbone.offline
 #= require reveal
+#= require webAudioApiForDesigners
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
@@ -19,6 +20,7 @@ Words      = require('collections/words')
 GameView   = require('views/game')
 
 $ ->
+
   words = new Words(page: 1)
   words.fetch
     success: (collection) ->
