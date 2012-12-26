@@ -29,6 +29,8 @@ module.exports = WordView = Backbone.View.extend
       word = $(e.currentTarget).text()
       @model.checkSpelling(word)
 
+
+
   updateState: ->
     if @model.get('answer') is "correct"
       @markAsCorrect()

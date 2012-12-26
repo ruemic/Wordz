@@ -9,4 +9,3 @@ module.exports = ScoreSound = Backbone.View.extend
 
   success: ->
     @successSound.playSound 'success'
-    console.log "suc"
