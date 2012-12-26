@@ -30,6 +30,7 @@ module.exports = WordView = Backbone.View.extend
     @nextQuestion()
 
   markAsCorrect: ->
+    # TODO fix grabbing both words when incorrect word contains correct word
     $correctWord = @$el.find( "p:contains(#{@model.correctWord()})" )
     $correctWord.addClass('correct')
 
