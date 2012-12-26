@@ -7,7 +7,8 @@ module.exports = Game = Backbone.Model.extend
     @levelLength = @words.size()
 
     @answerCount = 0
-    @.set(level:1)
+    @.set(level: 1 )
+    @.set(answer_count: 0 )
     @.set(mode: "play")
 
     window.score = new Score(words:@words)
@@ -19,13 +20,13 @@ module.exports = Game = Backbone.Model.extend
 
   trackLevelProgress: ->
     @answerCount += 1
-    console.log "answer Count: ", @answerCount
+    @.set(answer_count: @answerCount )
     if @answerCount is @levelLength
       @.set(mode: "end")
 
-
   nextLevel: (options) ->
     if options.get('mode') is "nextLevel"
+      @answerCount = 0 #TODO better progress tracking
       @score.endLevel()
       @getNextLevel()
 
@@ -33,4 +34,3 @@ module.exports = Game = Backbone.Model.extend
     nextLevel = @.get('level') + 1
     @.set(level: nextLevel )
     @words.fetchLevel(nextLevel)
-    @answerCount = 0 #TODO better progress tracking

@@ -8,11 +8,11 @@ module.exports = GameView = Backbone.View.extend
 
   initialize: (options) ->
     @words = options.collection
+    @levelView  = new LevelView(collection: @words)
 
     @totalScore = new TotalScoreView()
     @scoreModal = new ScoreModalView()
     @levelScore = new LevelScoreView()
-    @levelView  = new LevelView(collection: @words)
 
     @indexView  = new IndexView(collection: @words).render()
 

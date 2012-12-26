@@ -16,6 +16,12 @@ body {
   background-repeat: no-repeat, repeat;
   background-size: 150% 150%, 3em 3em;
 }
+
+.container {
+  min-height: 800px;
+  @include transition(all .1s ease-in)
+}
+
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
 
 #scoreboard {
