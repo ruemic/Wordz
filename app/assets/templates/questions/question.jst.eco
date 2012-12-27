@@ -1,9 +1,9 @@
 <div>
-  <div class="choice">
+  <div class="left choice">
     <p class="word"><%= @wordA %></p>
   </div>
 
-  <div class="choice">
+  <div class="right choice">
     <p class="word"><%= @wordB %></p>
   </div>
 </div>

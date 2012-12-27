@@ -5,10 +5,16 @@ module.exports = QuestionIndexView = Backbone.View.extend
 
   initialize: ->
     @collection.on('add reset', @render, @)
+    Mousetrap.bind ',', ->
+      @$(".current").find(".word").first().click()
+    Mousetrap.bind '.', ->
+      @$(".current").find(".word").last().click()
+    @
 
   render: ->
     @$('#words').html ''
     @collection.each @addOne
+    @$('.question').first().addClass('current')
     @
 
   addOne: (question) =>

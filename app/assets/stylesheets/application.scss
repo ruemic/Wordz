@@ -18,8 +18,8 @@ body {
 }
 
 .container {
-  min-height: 800px;
-  @include transition(all .1s ease-in)
+  height: 800px;
+  @include transition(all .1s ease-in);
 }
 
 h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
@@ -27,6 +27,7 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
 #scoreboard {
   @extend .row;
   list-style: none;
+  margin-bottom: 2em;
   li {
     @extend .two;
     @extend .columns;
@@ -39,46 +40,64 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
   }
   #level-score {
     @extend .offset-by-three;
-    span { font-size: 4em }
+    span { font-size: 3em }
   }
 }
 
 #words {
-  margin-top: 100px;
-  position: relative;
+  margin-top: 0em;
+  height: 500px;
   list-style: none;
+  position: relative;
+  background-color: transparentize(pink,.7);
   .question {
-    @extend .row;
-    height: 800px;
-    > div {
-      @extend .twelve;
-      @extend .columns;
+    opacity: 0;
+    top: 300px;
+    width: 100%;
+    position: absolute;
+    background-color: blue;
+    @include transition(all .5s ease-in);
+    @include box-sizing(border-box);
+    &.current {
+      top: 100px;
+      opacity: 1;
+      @include transition(all .2s ease-out);
     }
-    .choice {
-      @extend .six;
-      @extend .columns;
+    &.answered {
+      top: -300px;
+      opacity: 1;
+      @include transition(all .2s ease-in);
     }
   }
 }
-.word {
-  border: 5px solid transparentize(blue,.95);
-  background: transparentize(white,.4);
 
-  @include user-select(none);
-  position: relative;
-  @include clearfix;
+.choice {
+  width: 48%;
+  position: absolute;
+  &.left  { left: 1%; }
+  &.right { right: 1%; }
+  @media (max-width: 767px) {
+    p { font-size: 1.2em; }
+  }
+}
+.word {
+  width: 100%;
+  padding: 1em 0;
   font-size: 3em;
   color: #6F6F6F;
   font-weight: 500;
   text-align: center;
   font-family: "OpenSans";
-  &.active {
-    font-weight: 900;
-  }
+  @include user-select(none);
+  background: transparentize(white,.4);
+  @include box-sizing(border-box);
+  @include transition(all .1s ease-in);
   &.correct {
     border: 5px solid transparentize(green, .5);
+    background-color: green;
   }
   &.incorrect {
     border: 5px solid transparentize(red, .5);
+    background-color: red;
   }
 }

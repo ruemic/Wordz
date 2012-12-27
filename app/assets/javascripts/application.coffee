@@ -6,6 +6,7 @@
 #= require backbone
 #= require backbone.offline
 #= require reveal
+#= require mousetrap
 #= require webAudioApiForDesigners
 #= require sprockets/commonjs
 #
@@ -27,3 +28,6 @@ $ ->
       window.game = new Game(words:collection)
 
   new GameView(collection: words).render()
+
+  # Handy Stuff for Developement
+  # window.words = words

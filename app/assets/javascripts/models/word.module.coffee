@@ -12,15 +12,16 @@ module.exports = Word = Backbone.Model.extend
 
   checkSpelling: (word) ->
     if word is @.correctWord()
-      @handleSuccess()
+      @handleSuccess(@)
+
     else
-      @handleFailure()
+      @handleFailure(@)
     return
 
-  handleSuccess: ->
-    @.set("answer":"correct")
+  handleFailure: (model) ->
+    model.set(answered_incorrectly: true)
 
-  handleFailure: ->
-    @.set("answer":"incorrect")
+  handleSuccess: (model) ->
+    model.set(answered_correctly: true)
 
 

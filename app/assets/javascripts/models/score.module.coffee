@@ -8,18 +8,19 @@ module.exports = Score = Backbone.Model.extend
     @words = options.words
     @sound = new ScoreSound()
 
-    @listenTo(@words, 'change:answer', @evaluateAnswer)
+    @listenTo(@words, 'change:answered_correctly',   @raiseScore)
+    @listenTo(@words, 'change:answered_incorrectly', @lowerScore)
 
-  evaluateAnswer: (word) ->
-    if word.get('answer') is "correct"
-      @changePoints(+3)
-      @sound.success()
-    else
-      @changePoints(-1)
-      @sound.fail()
+  raiseScore: ->
+    @changePoints(+3)
+    @sound.success()
 
-  changePoints: (number) ->
-    @points += number
+  lowerScore: ->
+    @changePoints(-1)
+    @sound.fail()
+
+  changePoints: (integer) ->
+    @points += integer
     @.set(score: @points)
 
   endLevel: ->
