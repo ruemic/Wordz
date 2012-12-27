@@ -1,6 +1,6 @@
-WordView = require('./word')
+QuestionView = require('./question')
 
-module.exports = WordIndexView = Backbone.View.extend
+module.exports = QuestionIndexView = Backbone.View.extend
   el: "#content"
 
   initialize: ->
@@ -11,7 +11,7 @@ module.exports = WordIndexView = Backbone.View.extend
     @collection.each @addOne
     @
 
-  addOne: (word) =>
-    view = new WordView(model: word)
+  addOne: (question) =>
+    view = new QuestionView(model: question)
     @$('#words').append view.render().el
 

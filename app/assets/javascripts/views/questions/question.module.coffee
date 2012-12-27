@@ -1,5 +1,5 @@
-module.exports = WordView = Backbone.View.extend
-  template: JST['words/word']
+module.exports = QuestionView = Backbone.View.extend
+  template: JST['questions/question']
   tagName: 'li'
   className: "question"
 
