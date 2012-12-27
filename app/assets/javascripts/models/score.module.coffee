@@ -16,6 +16,7 @@ module.exports = Score = Backbone.Model.extend
       @sound.success()
     else
       @changePoints(-1)
+      @sound.fail()
 
   changePoints: (number) ->
     @points += number
