@@ -12,10 +12,17 @@ module.exports = ScoreModalView = Backbone.View.extend
     if options.get('mode') is "end"
       levelScore = score.get('score')
       @$el.html(@template(points: levelScore))
-      @$el.reveal
-        closed: ->
-          game.set('mode':'nextLevel')
+      @revealModal()
 
+  revealModal: ->
+    @$el.reveal
+      open: ->
+        Mousetrap.bind "enter", ->
+          $('.reveal-modal-bg').click()
+          console.log "space bound"
+      closed: ->
+        game.set('mode':'nextLevel')
+        Mousetrap.unbind "enter"
 
 
 
