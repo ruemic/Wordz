@@ -1,7 +1,6 @@
 #= require jquery
 #= require modernizr
 #= require jquery_ujs
-#= require jquery.sortable
 #= require underscore
 #= require backbone
 #= require backbone.offline
@@ -18,9 +17,7 @@
 #= require_self
 
 
-WordsRouter     = require('routers/router')
-
-
+WordsRouter = require('routers/router')
 
 $ ->
   window.router = new WordsRouter()

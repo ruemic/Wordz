@@ -15,9 +15,8 @@ body {
   background-size: 150% 150%, 3em 3em;
 }
 
-
 .container {
-  height: 800px;
+  min-height: 1200px;
   @include transition(all .1s ease-in);
 }
 
@@ -45,10 +44,8 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
 
 #words {
   margin-top: 0em;
-  height: 500px;
   list-style: none;
   position: relative;
-  background-color: transparentize(pink,.7);
   .question {
     opacity: 0;
     top: 300px;
@@ -58,12 +55,12 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
     @include transition(all .5s ease-in);
     @include box-sizing(border-box);
     &.current {
-      top: 100px;
+      top: 50px;
       opacity: 1;
       @include transition(all .2s ease-out);
     }
     &.answered {
-      top: -300px;
+      top: -600px;
       opacity: 1;
       @include transition(all .2s ease-in);
     }
@@ -81,16 +78,18 @@ h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding:
 }
 .word {
   width: 100%;
-  padding: 1em 0;
+  padding: 2em 0;
   font-size: 3em;
-  color: #6F6F6F;
+  color: rgb(66, 66, 66);
   font-weight: 500;
   text-align: center;
   font-family: "OpenSans";
   @include user-select(none);
   background: transparentize(white,.4);
   @include box-sizing(border-box);
-  @include transition(all .1s ease-in);
+  @include transition(all .2s ease-in);
+  @include box-shadow(0px 5px 20px hsla(1,1%,1%, .2));
+  border-radius: 3px;
   &.correct {
     border: 5px solid transparentize(green, .5);
     background-color: green;
