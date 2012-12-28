@@ -1,0 +1,11 @@
+<!-- <li id="level">
+  level: <span></span>
+</li>
+ -->
+<li id="total-score">
+  total score: <span class="total-score"></span>
+</li>
+
+<li id="level-score">
+  score: <span class="level-score"></span>
+</li>
