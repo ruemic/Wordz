@@ -11,23 +11,19 @@
 #= require sprockets/commonjs
 #
 #= require_tree ../templates
+#= require_tree ./routers
 #= require_tree ./models
 #= require_tree ./collections
 #= require_tree ./views
 #= require_self
 
-Game       = require('models/game')
-Words      = require('collections/words')
-GameView   = require('views/game')
+
+WordsRouter     = require('routers/router')
+
+
 
 $ ->
+  window.router = new WordsRouter()
+  Backbone.history.start()
 
-  words = new Words(page: 1)
-  words.fetch
-    success: (collection) ->
-      window.game = new Game(words:collection)
 
-  new GameView(collection: words).render()
-
-  # Handy Stuff for Developement
-  # window.words = words
