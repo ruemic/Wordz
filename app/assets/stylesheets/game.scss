@@ -1,0 +1,14 @@
+@import "bourbon";
+@import "neat";
+
+#game {
+  @include outer-container;
+  background-color: lighten(blue,40%);
+}
+
+.word {
+  color: black;
+  @include span-columns(3, inline-block);
+  .answer-key { opacity: .1; }
+}
+
