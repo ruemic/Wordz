@@ -1,6 +1,6 @@
-MissPellings.Views.Words ||= {}
+Wordz.Views.Words ||= {}
 
-class MissPellings.Views.Words.IndexView extends Backbone.View
+class Wordz.Views.Words.IndexView extends Backbone.View
   template: JST["backbone/templates/words/index"]
 
   initialize: () ->
@@ -12,7 +12,7 @@ class MissPellings.Views.Words.IndexView extends Backbone.View
     @options.words.each(@addOne)
 
   addOne: (word) =>
-    view = new MissPellings.Views.Words.WordView({model : word})
+    view = new Wordz.Views.Words.WordView({model : word})
     @$("tbody").append(view.render().el)
 
   render: =>

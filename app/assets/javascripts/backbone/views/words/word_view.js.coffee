@@ -1,6 +1,6 @@
-MissPellings.Views.Words ||= {}
+Wordz.Views.Words ||= {}
 
-class MissPellings.Views.Words.WordView extends Backbone.View
+class Wordz.Views.Words.WordView extends Backbone.View
   template: JST["backbone/templates/words/word"]
 
   events:

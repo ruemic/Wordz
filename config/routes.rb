@@ -1,4 +1,4 @@
-MissPellings::Application.routes.draw do
+Wordz::Application.routes.draw do
   resources :words
   resources :game
 

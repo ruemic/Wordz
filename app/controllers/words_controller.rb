@@ -4,6 +4,8 @@ class WordsController < ApplicationController
   def index
     @words = Word.order("RANDOM()").limit(30)
 
+    # @words = Word.order("RANDOM()").limit(30)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @words }

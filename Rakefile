@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MissPellings::Application.load_tasks
+Wordz::Application.load_tasks

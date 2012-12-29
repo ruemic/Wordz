@@ -9,6 +9,14 @@
 .word {
   color: black;
   @include span-columns(3, inline-block);
-  .answer-key { opacity: .1; }
+  @include transition(all 1s ease-in-out);
+  .answer-key {
+    opacity: .1;
+    position: absolute;
+
+  }
+  &:hover {
+    color: purple;
+  }
 }
 

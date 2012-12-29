@@ -1,6 +1,6 @@
-MissPellings.Views.Game ||= {}
+Wordz.Views.Game ||= {}
 
-class MissPellings.Views.Game.Index extends Backbone.View
+class Wordz.Views.Game.Index extends Backbone.View
 
   id: "index"
 
@@ -14,7 +14,7 @@ class MissPellings.Views.Game.Index extends Backbone.View
     @words.each(@addOne)
 
   addOne: (word) =>
-    view = new MissPellings.Views.Game.Word(model: word)
+    view = new Wordz.Views.Game.Word(model: word)
     @$el.append(view.render().el)
 
   render: =>

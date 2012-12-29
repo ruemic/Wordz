@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
   $(function() {
-    window.router = new MissPellings.Routers.WordsRouter({words: <%= @words.to_json.html_safe -%>});
+    window.router = new Wordz.Routers.WordsRouter({words: <%= @words.to_json.html_safe -%>});
     Backbone.history.start();
   });
 </script>

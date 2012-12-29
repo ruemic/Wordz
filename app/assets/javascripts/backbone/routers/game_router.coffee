@@ -1,13 +1,13 @@
-class MissPellings.Routers.GameRouter extends Backbone.Router
+class Wordz.Routers.GameRouter extends Backbone.Router
 
   initialize: (options) ->
-    @words = new MissPellings.Collections.WordsCollection()
+    @words = new Wordz.Collections.WordsCollection()
     @words.reset options.words
 
   routes:
     ".*"    : "index"
 
   index: ->
-    @view = new MissPellings.Views.Game.Index(words: @words)
+    @view = new Wordz.Views.Game.Index(words: @words)
     $("#game").html(@view.render().el)
 
