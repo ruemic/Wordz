@@ -1,4 +1,4 @@
 Wordz
 =====
 
-Games that involve words
+Games that involve wordz
