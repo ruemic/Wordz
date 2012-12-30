@@ -10,12 +10,13 @@ module.exports = Word = Backbone.Model.extend
     @.get('incorrect')
 
 
-  checkSpelling: (word) ->
+  isCorrect: (word) ->
     if word is @.correctWord()
       @handleSuccess(@)
-
+      return true
     else
       @handleFailure(@)
+      return false
     return
 
   handleFailure: (model) ->

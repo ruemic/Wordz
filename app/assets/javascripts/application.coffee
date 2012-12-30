@@ -19,6 +19,7 @@
 
 WordsRouter = require('routers/router')
 
+
 $ ->
   window.router = new WordsRouter()
   Backbone.history.start()

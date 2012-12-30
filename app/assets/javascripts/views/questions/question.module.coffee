@@ -8,8 +8,7 @@ module.exports = QuestionView = Backbone.View.extend
     "click .word" : "checkAnswer"
 
   initialize: (options) ->
-    @listenTo(@model, 'change:answered_incorrectly', @markAsIncorrect)
-    @listenTo(@model, 'change:answered_correctly', @markAsCorrect)
+    _.bindAll(@, 'markAsIncorrect', 'nextQuestion')
 
   render: ->
     oneOrZero = Math.round(1 * Math.random())
@@ -21,11 +20,13 @@ module.exports = QuestionView = Backbone.View.extend
 
   checkAnswer: (event) ->
     word = $(event.currentTarget).text()
-    @model.checkSpelling(word)
+    if @model.isCorrect(word) is true
+      @markAsCorrect()
+    else
+      @markAsIncorrect()
 
   markAsCorrect: ->
     # TODO fix grabbing both words when incorrect word contains correct word
-    # TODO fix multiple triggerings
     $correctWord = @$el.find( "p:contains(#{@model.correctWord()})" )
     $correctWord.addClass('correct')
     @nextQuestion()
@@ -33,7 +34,7 @@ module.exports = QuestionView = Backbone.View.extend
   markAsIncorrect: ->
     $incorrectWord = @$el.find( "p:contains(#{@model.incorrectWord()})" )
     $incorrectWord.addClass('incorrect')
-    @nextQuestion()
+    setTimeout( @nextQuestion, 300 )
 
   nextQuestion: ->
     @$el.removeClass('current').addClass('answered')

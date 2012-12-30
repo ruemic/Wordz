@@ -19,7 +19,6 @@ module.exports = ScoreModalView = Backbone.View.extend
       open: ->
         Mousetrap.bind "enter", ->
           $('.reveal-modal-bg').click()
-          console.log "space bound"
       closed: ->
         game.set('mode':'nextLevel')
         Mousetrap.unbind "enter"

@@ -1,3 +1,8 @@
+
+
+TimerModel      =  require('views/timer/timer_model')
+TimerView       =  require('views/timer/timer_view')
+
 LevelScoreView  =  require('views/score/level_score')
 TotalScoreView  =  require('views/score/total_score')
 ScoreModalView  =  require('views/score/score_modal')
@@ -9,6 +14,9 @@ module.exports = GameView = Backbone.View.extend
 
 
   initialize: (options) ->
+    window.timer = new TimerModel()
+    @timer = new TimerView()
+
     @words = options.collection
     @levelView  = new LevelView(collection: @words)
 
