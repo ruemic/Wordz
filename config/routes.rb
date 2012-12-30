@@ -2,6 +2,7 @@ Wordz::Application.routes.draw do
   resources :words
   resources :game
 
+  # root :to => 'word#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -51,7 +52,7 @@ Wordz::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'game#index'
 
   # See how all your routes lay out with "rake routes"
 

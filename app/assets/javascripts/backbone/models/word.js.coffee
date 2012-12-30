@@ -7,4 +7,5 @@ class Wordz.Models.Word extends Backbone.Model
 
 class Wordz.Collections.WordsCollection extends Backbone.Collection
   model: Wordz.Models.Word
-  url: '/words'
+  url: '/game?spelling=true'
+

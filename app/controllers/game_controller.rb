@@ -2,7 +2,7 @@ class GameController < ApplicationController
   # GET /words
   # GET /words.json
   def index
-    @words = Word.order("RANDOM()").limit(30)
+    @words = Word.order("RANDOM()").limit(20)
 
     respond_to do |format|
       format.html # index.html.erb
