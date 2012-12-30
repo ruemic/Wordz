@@ -29,13 +29,13 @@ module.exports = QuestionView = Backbone.View.extend
     # TODO fix grabbing both words when incorrect word contains correct word
     $correctWord = @$el.find( "p:contains(#{@model.correctWord()})" )
     $correctWord.addClass('correct')
+    @$el.removeClass('current').addClass('answered')
     @nextQuestion()
 
   markAsIncorrect: ->
     $incorrectWord = @$el.find( "p:contains(#{@model.incorrectWord()})" )
     $incorrectWord.addClass('incorrect')
-    setTimeout( @nextQuestion, 300 )
-
+    @$el.removeClass('current')
+    setTimeout( @nextQuestion, 1000 )
   nextQuestion: ->
-    @$el.removeClass('current').addClass('answered')
     @$el.next('li').addClass('current')
