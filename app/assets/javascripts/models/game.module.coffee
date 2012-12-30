@@ -5,7 +5,6 @@ Timer      = require('views/timer/timer_model')
 module.exports = Game = Backbone.Model.extend
 
   initialize: (options) ->
-    window.timer = new Timer()
 
     @words = options.words
     @levelLength = @words.size()
@@ -15,6 +14,8 @@ module.exports = Game = Backbone.Model.extend
     @.set(answer_count: 0 )
     @.set(mode: "play")
 
+    window.timer = new Timer()
+    @timer = window.timer
 
     window.score = new Score(words:@words)
     @score = window.score
@@ -25,10 +26,9 @@ module.exports = Game = Backbone.Model.extend
 
 
   startLevel: ->
-    console.log "start"
     @answerCount = 0
-    window.timer.play()
-
+    @timer.reset()
+    @timer.play()
 
   trackLevelProgress: ->
     @answerCount += 1
@@ -37,6 +37,7 @@ module.exports = Game = Backbone.Model.extend
       @endLevel()
 
   endLevel: ->
+    @timer.pause()
     @.set( mode: "end" )
 
   nextLevel: (options) ->
@@ -48,3 +49,4 @@ module.exports = Game = Backbone.Model.extend
     nextLevel = @.get('level') + 1
     @.set( level: nextLevel )
     @words.fetchLevel(nextLevel)
+

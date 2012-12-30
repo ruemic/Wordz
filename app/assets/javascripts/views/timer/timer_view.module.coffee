@@ -5,9 +5,10 @@ module.exports = Timer = Backbone.View.extend
   events:
     "click" : "pause"
 
-  initialize: ->
+  initialize: (options) ->
     @model = window.timer
     @listenTo(@model, "change:seconds", @render)
+    @model.set(mode:"play")
 
   render: ->
     time = @model.get('seconds')
@@ -18,3 +19,4 @@ module.exports = Timer = Backbone.View.extend
       @model.play()
     else
       @model.pause()
+
