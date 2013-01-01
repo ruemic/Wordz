@@ -2,7 +2,9 @@ Wordz.Views.Game ||= {}
 
 class Wordz.Views.Game.Index extends Backbone.View
 
-  id: "index"
+  id: "word-list"
+
+  tagName: "ul"
 
   template: JST['backbone/templates/game/index']
 
@@ -12,6 +14,8 @@ class Wordz.Views.Game.Index extends Backbone.View
 
   addAll: () ->
     @words.each(@addOne)
+    @$('.question').first().addClass('current')
+
 
   addOne: (word) =>
     view = new Wordz.Views.Game.Word(model: word)

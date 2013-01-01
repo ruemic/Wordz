@@ -1,25 +1,108 @@
 @import "bourbon";
 @import "neat";
 
+
 #game {
   @include outer-container;
   background-color: lighten(blue,40%);
 }
 
-.word {
-  color: black;
-  @include span-columns(3, inline-block);
-  @include transition(all 1s ease-in-out);
+html {
+  min-height: 100%;
+}
 
-  p {
-    display: none;
-    font-size: 1.2em;
+body {
+  min-height: 100%;
+  background-color: #eefbf8;
+  @include radial-gradient(50% 50%, circle cover, hsla(0,0%,100%,.2) 30%, hsla(0,0%,0%,.75));
+  // linear-gradient(left, transparent 50%, hsla(0,0%,0%,.01) 50%);
+  background-position: 50% 75%, 50% 50%;
+  background-repeat: no-repeat, repeat;
+  background-size: 150% 150%, 3em 3em;
+}
+
+h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
+
+#scoreboard {
+  @extend .row;
+  list-style: none;
+  margin-bottom: 2em;
+  li {
+    @extend .two;
+    @extend .columns;
+    @include inline-block;
+    > span {
+      line-height: 60px;
+      @include inline-block;
+      vertical-align: middle;
+    }
   }
-  .visible { display: block;}
-
-
-  &:hover {
-    color: purple;
+  #level-score {
+    @extend .offset-by-three;
+    span { font-size: 3em }
   }
 }
+
+#word-list {
+  margin-top: 0em;
+  list-style: none;
+  position: relative;
+  .question {
+    opacity: 0;
+    top: 300px;
+    width: 100%;
+    position: absolute;
+    background-color: blue;
+    @include transition(all .5s ease-in);
+    @include box-sizing(border-box);
+    &.current {
+      top: 50px;
+      opacity: 1;
+      @include transition(all .2s ease-out);
+    }
+    &.answered {
+      top: -600px;
+      opacity: 1;
+      @include transition(all .2s ease-in);
+    }
+  }
+}
+
+.choice {
+  @include span-columns(6, inline-block);
+  position: absolute;
+  &.left  { left: 1%; }
+  &.right { right: 1%; }
+  @media (max-width: 767px) {
+    p { font-size: 1.2em; }
+  }
+}
+.word {
+  width: 100%;
+  padding: 2em 0;
+  font-size: 3em;
+  color: rgb(66, 66, 66);
+  font-weight: 500;
+  text-align: center;
+  font-family: "OpenSans";
+  @include user-select(none);
+  background: transparentize(white,.4);
+  @include box-sizing(border-box);
+  @include transition(all .2s ease-in);
+  @include box-shadow(0px 5px 20px hsla(1,1%,1%, .2));
+  border-radius: 3px;
+  &:hover {
+    cursor: pointer;
+  }
+  &.correct {
+    border: 5px solid transparentize(green, .5);
+    background-color: green;
+  }
+  &.incorrect {
+    border: 5px solid transparentize(red, .5);
+    background-color: red;
+  }
+}
+
+
 
