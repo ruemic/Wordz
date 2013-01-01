@@ -16,7 +16,6 @@ window.Wordz =
     Backbone.history.start()
 
   configureApp: ->
-    console.log "confid"
     @eventTracker = new Wordz.Models.EventTracker()
 
   get: (name) ->

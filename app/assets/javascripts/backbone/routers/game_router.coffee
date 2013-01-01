@@ -5,8 +5,8 @@ class Wordz.Routers.GameRouter extends Backbone.Router
     @game = new Wordz.Models.GameMaster()
 
   routes:
-    "play"    : "play"
-    "start"   : "start"
+    "/*"    : "start"
+    "play"   : "play"
 
   start: ->
     window.view = new Wordz.Views.Game.Start()
