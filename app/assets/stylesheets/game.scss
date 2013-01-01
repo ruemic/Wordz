@@ -10,11 +10,14 @@
   color: black;
   @include span-columns(3, inline-block);
   @include transition(all 1s ease-in-out);
-  .answer-key {
-    opacity: .8;
-    position: absolute;
 
+  p {
+    display: none;
+    font-size: 1.2em;
   }
+  .visible { display: block;}
+
+
   &:hover {
     color: purple;
   }
