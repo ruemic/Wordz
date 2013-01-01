@@ -6,8 +6,8 @@ class Wordz.Models.Word extends Backbone.Model
     correct: null
 
   validate: (attrs) ->
-    correct = $.trim(attrs.correct)
-    return "Can't be blank" if _.isEmpty(correct)
+    word = $.trim(attrs.word)
+    return "Can't be blank" if _.isEmpty(word)
 
   correctWord: ->
     @.get('correct')

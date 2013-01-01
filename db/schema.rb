@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20121229005530) do
 
   create_table "words", :force => true do |t|
-    t.string   "incorrect"
-    t.string   "correct"
+    t.string   "word"
+    t.boolean  "spelling"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

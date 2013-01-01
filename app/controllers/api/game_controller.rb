@@ -4,7 +4,7 @@ class GameAPIController < ApplicationController
   actions :index
 
   def index
-    @words = Word.order("RANDOM()").where(:correct => true).limit(30)
+    @words = Word.order("RANDOM()").limit(30)
     render json: @words
   end
 

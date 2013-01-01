@@ -1,3 +1,3 @@
 class Word < ActiveRecord::Base
-  attr_accessible :correct, :incorrect
+  attr_accessible :word, :spelling
 end

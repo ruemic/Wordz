@@ -13,11 +13,8 @@ class Wordz.Views.Game.Word extends Backbone.View
     _.bindAll(@, 'markAsIncorrect', 'nextQuestion')
 
   render: ->
-    oneOrZero = Math.round(1 * Math.random())
-    if oneOrZero is 0
-      @$el.html( @template(correct: @model.get('correct'), incorrect: @model.get('incorrect') ))
-    else
-      @$el.html( @template(incorrect: @model.get('correct'), correct: @model.get('incorrect') ))
+    console.log "redner word"
+    @$el.html( @template(word: @model.get('word') ))
     @
 
   checkAnswer: (event) ->
