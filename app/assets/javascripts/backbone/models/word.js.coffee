@@ -15,12 +15,12 @@ class Wordz.Models.Word extends Backbone.Model
   incorrectWord: ->
     @.get('incorrect')
 
-  isCorrect: (word) ->
-    if word is @.correctWord()
-      @.set(answered_correctly: true)
+  judgeCorrectnessOf: (spelling) ->
+    if spelling is @.correctWord()
+      @.set(answer: true)
       return true
     else
-      @.set(answered_incorrectly: true)
+      @.set(answer: false)
       return false
     return
 

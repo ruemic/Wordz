@@ -22,8 +22,8 @@ class Wordz.Views.Game.Word extends Backbone.View
 
   checkAnswer: (event) ->
     $word = $(event.currentTarget)
-    word = $word.text()
-    if @model.isCorrect(word) is true
+    spelling = $word.text()
+    if @model.judgeCorrectnessOf(spelling) is true
       @markAsCorrect($word)
     else
       @markAsIncorrect($word)

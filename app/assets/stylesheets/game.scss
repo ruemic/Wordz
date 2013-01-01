@@ -59,9 +59,9 @@ body {
     @include transition(all .2s ease-out);
   }
   &.answered-correct {
-    top: -600px;
-    opacity: 1;
-    @include transition(all .2s ease-in);
+    top: -300px;
+    opacity: 0;
+    @include transition(all .5s ease-in);
   }
   &.answered-incorrect {
     opacity: 0;
@@ -90,7 +90,7 @@ body {
   @include user-select(none);
   background: transparentize(white,.4);
   @include box-sizing(border-box);
-  @include transition(all .2s ease-in);
+  @include transition(all .6s ease-in);
   @include box-shadow(0px 5px 20px hsla(1,1%,1%, .2));
   border-radius: 3px;
   &:hover {
