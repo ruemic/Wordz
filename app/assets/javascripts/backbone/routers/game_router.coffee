@@ -1,13 +1,14 @@
 class Wordz.Routers.GameRouter extends Backbone.Router
 
-  initialize: (options) ->
+  initialize: ->
     @words = new Wordz.Collections.WordsCollection()
-    @words.reset options.words
 
   routes:
     ".*"    : "index"
 
   index: ->
-    @view = new Wordz.Views.Game.Index(words: @words)
-    $("#game").html(@view.render().el)
+    @words.fetch
+      success: (collection) ->
+        @view = new Wordz.Views.Game.Index(words: collection)
+        $("#game").html(@view.render().el)
 

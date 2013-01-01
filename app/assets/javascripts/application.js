@@ -16,5 +16,5 @@
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink
-//= require backbone/miss_pellings
+//= require backbone/wordz
 //= require_tree .
