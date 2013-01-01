@@ -19,7 +19,6 @@ body {
 
 #game {
   @include outer-container;
-  background-color: lighten(blue,40%);
 }
 
 // h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }

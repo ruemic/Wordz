@@ -3,9 +3,7 @@ Wordz.Views.Game ||= {}
 class Wordz.Views.Game.Word extends Backbone.View
 
   template: JST['backbone/templates/game/word']
-
   className: 'question'
-
   tagName: 'li'
 
   events:
@@ -24,8 +22,8 @@ class Wordz.Views.Game.Word extends Backbone.View
 
   checkAnswer: (event) ->
     $word = $(event.currentTarget)
-    spelling = $word.text()
-    if @model.isCorrect(spelling) is true
+    word = $word.text()
+    if @model.isCorrect(word) is true
       @markAsCorrect($word)
     else
       @markAsIncorrect($word)
