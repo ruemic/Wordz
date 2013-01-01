@@ -14,7 +14,6 @@ class Wordz.Views.Game.Word extends Backbone.View
   initialize: ->
     _.bindAll(@, 'markAsIncorrect', 'nextQuestion')
 
-
   render: ->
     oneOrZero = Math.round(1 * Math.random())
     if oneOrZero is 0
@@ -34,12 +33,12 @@ class Wordz.Views.Game.Word extends Backbone.View
   markAsCorrect: ($word) ->
     # TODO fix grabbing both words when incorrect word contains correct word
     $word.addClass('correct')
-    @$el.removeClass('current').addClass('answered')
+    @$el.removeClass('current').addClass('answered-correct')
     @nextQuestion()
 
   markAsIncorrect: ($word) ->
     $word.addClass('incorrect')
-    @$el.removeClass('current')
+    @$el.removeClass('current').addClass('answered-incorrect')
     setTimeout( @nextQuestion, 1000 )
 
   nextQuestion: ->

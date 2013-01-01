@@ -2,10 +2,6 @@
 @import "neat";
 
 
-#game {
-  @include outer-container;
-  background-color: lighten(blue,40%);
-}
 
 html {
   min-height: 100%;
@@ -21,58 +17,51 @@ body {
   background-size: 150% 150%, 3em 3em;
 }
 
-h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
-
-#scoreboard {
-  @extend .row;
-  list-style: none;
-  margin-bottom: 2em;
-  li {
-    @extend .two;
-    @extend .columns;
-    @include inline-block;
-    > span {
-      line-height: 60px;
-      @include inline-block;
-      vertical-align: middle;
-    }
-  }
-  #level-score {
-    @extend .offset-by-three;
-    span { font-size: 3em }
-  }
+#game {
+  @include outer-container;
+  background-color: lighten(blue,40%);
 }
+
+// h2, h3, h6 { font-family: "OpenSans"; color: #6F6F6F; font-weight: 500; padding: 10px 0; }
+
 
 #word-list {
   margin-top: 0em;
   list-style: none;
   position: relative;
-  .question {
+}
+.question {
+  left: 0;
+  top: 300px;
+  opacity: 0;
+  position: absolute;
+  background-color: blue;
+  @include clearfix;
+  @include span-columns(12, inline-block);
+  @include transition(all .5s ease-in);
+  @include box-sizing(border-box);
+  &.current {
+    top: 50px;
+    opacity: 1;
+    @include transition(all .2s ease-out);
+  }
+  &.answered-correct {
+    top: -600px;
+    opacity: 1;
+    @include transition(all .2s ease-in);
+  }
+  &.answered-incorrect {
     opacity: 0;
-    top: 300px;
-    width: 100%;
-    position: absolute;
-    background-color: blue;
-    @include transition(all .5s ease-in);
-    @include box-sizing(border-box);
-    &.current {
-      top: 50px;
-      opacity: 1;
-      @include transition(all .2s ease-out);
-    }
-    &.answered {
-      top: -600px;
-      opacity: 1;
-      @include transition(all .2s ease-in);
-    }
+    top: 800px;
+    @include transition(all .6s ease-in);
   }
 }
 
 .choice {
   @include span-columns(6, inline-block);
   position: absolute;
-  &.left  { left: 1%; }
-  &.right { right: 1%; }
+  &.left  { left: 0; }
+  &.right { right: 0; }
   @media (max-width: 767px) {
     p { font-size: 1.2em; }
   }
